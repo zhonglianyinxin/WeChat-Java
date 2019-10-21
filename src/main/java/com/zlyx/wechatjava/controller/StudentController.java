@@ -1,4 +1,4 @@
 package com.zlyx.wechatjava.controller;
 
-public class UserController {
+public class StudentController {
 }

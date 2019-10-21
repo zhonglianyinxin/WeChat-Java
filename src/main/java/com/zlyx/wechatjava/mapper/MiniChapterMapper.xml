@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zlyx.wechatjava.mapper.MiniChapterMapper" >
+  <resultMap id="BaseResultMap" type="com.zlyx.wechatjava.pojo.MiniChapter" >
+    <id column="chap_id" property="chapId" jdbcType="BIGINT" />
+    <result column="chap_name" property="chapName" jdbcType="VARCHAR" />
+    <result column="less_id" property="lessId" jdbcType="VARCHAR" />
+    <result column="less_type" property="lessType" jdbcType="VARCHAR" />
+    <result column="less_attribute" property="lessAttribute" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="VARCHAR" />
+    <result column="create_name" property="createName" jdbcType="VARCHAR" />
+    <result column="op_time" property="opTime" jdbcType="VARCHAR" />
+    <result column="op_name" property="opName" jdbcType="VARCHAR" />
+    <result column="del_time" property="delTime" jdbcType="VARCHAR" />
+    <result column="del_name" property="delName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    chap_id, chap_name, less_id, less_type, less_attribute, remark, create_time, create_name, 
+    op_time, op_name, del_time, del_name
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zlyx.wechatjava.pojo.MiniChapterExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mini_chapter
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from mini_chapter
+    where chap_id = #{chapId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from mini_chapter
+    where chap_id = #{chapId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zlyx.wechatjava.pojo.MiniChapterExample" >
+    delete from mini_chapter
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zlyx.wechatjava.pojo.MiniChapter" >
+    insert into mini_chapter (chap_id, chap_name, less_id, 
+      less_type, less_attribute, remark, 
+      create_time, create_name, op_time, 
+      op_name, del_time, del_name
+      )
+    values (#{chapId,jdbcType=BIGINT}, #{chapName,jdbcType=VARCHAR}, #{lessId,jdbcType=VARCHAR}, 
+      #{lessType,jdbcType=VARCHAR}, #{lessAttribute,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=VARCHAR}, #{createName,jdbcType=VARCHAR}, #{opTime,jdbcType=VARCHAR}, 
+      #{opName,jdbcType=VARCHAR}, #{delTime,jdbcType=VARCHAR}, #{delName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zlyx.wechatjava.pojo.MiniChapter" >
+    insert into mini_chapter
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="chapId != null" >
+        chap_id,
+      </if>
+      <if test="chapName != null" >
+        chap_name,
+      </if>
+      <if test="lessId != null" >
+        less_id,
+      </if>
+      <if test="lessType != null" >
+        less_type,
+      </if>
+      <if test="lessAttribute != null" >
+        less_attribute,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createName != null" >
+        create_name,
+      </if>
+      <if test="opTime != null" >
+        op_time,
+      </if>
+      <if test="opName != null" >
+        op_name,
+      </if>
+      <if test="delTime != null" >
+        del_time,
+      </if>
+      <if test="delName != null" >
+        del_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="chapId != null" >
+        #{chapId,jdbcType=BIGINT},
+      </if>
+      <if test="chapName != null" >
+        #{chapName,jdbcType=VARCHAR},
+      </if>
+      <if test="lessId != null" >
+        #{lessId,jdbcType=VARCHAR},
+      </if>
+      <if test="lessType != null" >
+        #{lessType,jdbcType=VARCHAR},
+      </if>
+      <if test="lessAttribute != null" >
+        #{lessAttribute,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null" >
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="opTime != null" >
+        #{opTime,jdbcType=VARCHAR},
+      </if>
+      <if test="opName != null" >
+        #{opName,jdbcType=VARCHAR},
+      </if>
+      <if test="delTime != null" >
+        #{delTime,jdbcType=VARCHAR},
+      </if>
+      <if test="delName != null" >
+        #{delName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zlyx.wechatjava.pojo.MiniChapterExample" resultType="java.lang.Integer" >
+    select count(*) from mini_chapter
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update mini_chapter
+    <set >
+      <if test="record.chapId != null" >
+        chap_id = #{record.chapId,jdbcType=BIGINT},
+      </if>
+      <if test="record.chapName != null" >
+        chap_name = #{record.chapName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lessId != null" >
+        less_id = #{record.lessId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lessType != null" >
+        less_type = #{record.lessType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lessAttribute != null" >
+        less_attribute = #{record.lessAttribute,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createName != null" >
+        create_name = #{record.createName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opTime != null" >
+        op_time = #{record.opTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opName != null" >
+        op_name = #{record.opName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.delTime != null" >
+        del_time = #{record.delTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.delName != null" >
+        del_name = #{record.delName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update mini_chapter
+    set chap_id = #{record.chapId,jdbcType=BIGINT},
+      chap_name = #{record.chapName,jdbcType=VARCHAR},
+      less_id = #{record.lessId,jdbcType=VARCHAR},
+      less_type = #{record.lessType,jdbcType=VARCHAR},
+      less_attribute = #{record.lessAttribute,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=VARCHAR},
+      create_name = #{record.createName,jdbcType=VARCHAR},
+      op_time = #{record.opTime,jdbcType=VARCHAR},
+      op_name = #{record.opName,jdbcType=VARCHAR},
+      del_time = #{record.delTime,jdbcType=VARCHAR},
+      del_name = #{record.delName,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zlyx.wechatjava.pojo.MiniChapter" >
+    update mini_chapter
+    <set >
+      <if test="chapName != null" >
+        chap_name = #{chapName,jdbcType=VARCHAR},
+      </if>
+      <if test="lessId != null" >
+        less_id = #{lessId,jdbcType=VARCHAR},
+      </if>
+      <if test="lessType != null" >
+        less_type = #{lessType,jdbcType=VARCHAR},
+      </if>
+      <if test="lessAttribute != null" >
+        less_attribute = #{lessAttribute,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null" >
+        create_name = #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="opTime != null" >
+        op_time = #{opTime,jdbcType=VARCHAR},
+      </if>
+      <if test="opName != null" >
+        op_name = #{opName,jdbcType=VARCHAR},
+      </if>
+      <if test="delTime != null" >
+        del_time = #{delTime,jdbcType=VARCHAR},
+      </if>
+      <if test="delName != null" >
+        del_name = #{delName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where chap_id = #{chapId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zlyx.wechatjava.pojo.MiniChapter" >
+    update mini_chapter
+    set chap_name = #{chapName,jdbcType=VARCHAR},
+      less_id = #{lessId,jdbcType=VARCHAR},
+      less_type = #{lessType,jdbcType=VARCHAR},
+      less_attribute = #{lessAttribute,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      create_name = #{createName,jdbcType=VARCHAR},
+      op_time = #{opTime,jdbcType=VARCHAR},
+      op_name = #{opName,jdbcType=VARCHAR},
+      del_time = #{delTime,jdbcType=VARCHAR},
+      del_name = #{delName,jdbcType=VARCHAR}
+    where chap_id = #{chapId,jdbcType=BIGINT}
+  </update>
+</mapper>

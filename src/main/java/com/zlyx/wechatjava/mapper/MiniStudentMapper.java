@@ -1,0 +1,30 @@
+package com.zlyx.wechatjava.mapper;
+
+import com.zlyx.wechatjava.pojo.MiniStudent;
+import com.zlyx.wechatjava.pojo.MiniStudentExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
+
+public interface MiniStudentMapper {
+    int countByExample(MiniStudentExample example);
+
+    int deleteByExample(MiniStudentExample example);
+
+    int deleteByPrimaryKey(Long stuNo);
+
+    int insert(MiniStudent record);
+
+    int insertSelective(MiniStudent record);
+
+    List<MiniStudent> selectByExample(MiniStudentExample example);
+
+    MiniStudent selectByPrimaryKey(Long stuNo);
+
+    int updateByExampleSelective(@Param("record") MiniStudent record, @Param("example") MiniStudentExample example);
+
+    int updateByExample(@Param("record") MiniStudent record, @Param("example") MiniStudentExample example);
+
+    int updateByPrimaryKeySelective(MiniStudent record);
+
+    int updateByPrimaryKey(MiniStudent record);
+}
