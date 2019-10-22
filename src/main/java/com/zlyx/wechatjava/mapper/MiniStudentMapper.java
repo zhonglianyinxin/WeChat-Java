@@ -2,9 +2,12 @@ package com.zlyx.wechatjava.mapper;
 
 import com.zlyx.wechatjava.pojo.MiniStudent;
 import com.zlyx.wechatjava.pojo.MiniStudentExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
+@Repository
 public interface MiniStudentMapper {
     int countByExample(MiniStudentExample example);
 
