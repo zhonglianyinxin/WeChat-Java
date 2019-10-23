@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zlyx.wechatjava.mapper.UserRoleMapper" >
+  <resultMap id="BaseResultMap" type="com.zlyx.wechatjava.pojo.UserRole" >
+    <id column="role_no" property="roleNo" jdbcType="VARCHAR" />
+    <result column="role_name" property="roleName" jdbcType="VARCHAR" />
+    <result column="role_create_id" property="roleCreateId" jdbcType="CHAR" />
+    <result column="role_create" property="roleCreate" jdbcType="VARCHAR" />
+    <result column="role_create_time" property="roleCreateTime" jdbcType="VARCHAR" />
+    <result column="role_desc" property="roleDesc" jdbcType="VARCHAR" />
+    <result column="op_id" property="opId" jdbcType="VARCHAR" />
+    <result column="op_name" property="opName" jdbcType="VARCHAR" />
+    <result column="op_time" property="opTime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    role_no, role_name, role_create_id, role_create, role_create_time, role_desc, op_id, 
+    op_name, op_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zlyx.wechatjava.pojo.UserRoleExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user_role
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_role
+    where role_no = #{roleNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from user_role
+    where role_no = #{roleNo,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zlyx.wechatjava.pojo.UserRoleExample" >
+    delete from user_role
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zlyx.wechatjava.pojo.UserRole" >
+    insert into user_role (role_no, role_name, role_create_id, 
+      role_create, role_create_time, role_desc, 
+      op_id, op_name, op_time
+      )
+    values (#{roleNo,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR}, #{roleCreateId,jdbcType=CHAR}, 
+      #{roleCreate,jdbcType=VARCHAR}, #{roleCreateTime,jdbcType=VARCHAR}, #{roleDesc,jdbcType=VARCHAR}, 
+      #{opId,jdbcType=VARCHAR}, #{opName,jdbcType=VARCHAR}, #{opTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zlyx.wechatjava.pojo.UserRole" >
+    insert into user_role
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="roleNo != null" >
+        role_no,
+      </if>
+      <if test="roleName != null" >
+        role_name,
+      </if>
+      <if test="roleCreateId != null" >
+        role_create_id,
+      </if>
+      <if test="roleCreate != null" >
+        role_create,
+      </if>
+      <if test="roleCreateTime != null" >
+        role_create_time,
+      </if>
+      <if test="roleDesc != null" >
+        role_desc,
+      </if>
+      <if test="opId != null" >
+        op_id,
+      </if>
+      <if test="opName != null" >
+        op_name,
+      </if>
+      <if test="opTime != null" >
+        op_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="roleNo != null" >
+        #{roleNo,jdbcType=VARCHAR},
+      </if>
+      <if test="roleName != null" >
+        #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="roleCreateId != null" >
+        #{roleCreateId,jdbcType=CHAR},
+      </if>
+      <if test="roleCreate != null" >
+        #{roleCreate,jdbcType=VARCHAR},
+      </if>
+      <if test="roleCreateTime != null" >
+        #{roleCreateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="roleDesc != null" >
+        #{roleDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="opId != null" >
+        #{opId,jdbcType=VARCHAR},
+      </if>
+      <if test="opName != null" >
+        #{opName,jdbcType=VARCHAR},
+      </if>
+      <if test="opTime != null" >
+        #{opTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zlyx.wechatjava.pojo.UserRoleExample" resultType="java.lang.Integer" >
+    select count(*) from user_role
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update user_role
+    <set >
+      <if test="record.roleNo != null" >
+        role_no = #{record.roleNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roleName != null" >
+        role_name = #{record.roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roleCreateId != null" >
+        role_create_id = #{record.roleCreateId,jdbcType=CHAR},
+      </if>
+      <if test="record.roleCreate != null" >
+        role_create = #{record.roleCreate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roleCreateTime != null" >
+        role_create_time = #{record.roleCreateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roleDesc != null" >
+        role_desc = #{record.roleDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opId != null" >
+        op_id = #{record.opId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opName != null" >
+        op_name = #{record.opName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opTime != null" >
+        op_time = #{record.opTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update user_role
+    set role_no = #{record.roleNo,jdbcType=VARCHAR},
+      role_name = #{record.roleName,jdbcType=VARCHAR},
+      role_create_id = #{record.roleCreateId,jdbcType=CHAR},
+      role_create = #{record.roleCreate,jdbcType=VARCHAR},
+      role_create_time = #{record.roleCreateTime,jdbcType=VARCHAR},
+      role_desc = #{record.roleDesc,jdbcType=VARCHAR},
+      op_id = #{record.opId,jdbcType=VARCHAR},
+      op_name = #{record.opName,jdbcType=VARCHAR},
+      op_time = #{record.opTime,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zlyx.wechatjava.pojo.UserRole" >
+    update user_role
+    <set >
+      <if test="roleName != null" >
+        role_name = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="roleCreateId != null" >
+        role_create_id = #{roleCreateId,jdbcType=CHAR},
+      </if>
+      <if test="roleCreate != null" >
+        role_create = #{roleCreate,jdbcType=VARCHAR},
+      </if>
+      <if test="roleCreateTime != null" >
+        role_create_time = #{roleCreateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="roleDesc != null" >
+        role_desc = #{roleDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="opId != null" >
+        op_id = #{opId,jdbcType=VARCHAR},
+      </if>
+      <if test="opName != null" >
+        op_name = #{opName,jdbcType=VARCHAR},
+      </if>
+      <if test="opTime != null" >
+        op_time = #{opTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where role_no = #{roleNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zlyx.wechatjava.pojo.UserRole" >
+    update user_role
+    set role_name = #{roleName,jdbcType=VARCHAR},
+      role_create_id = #{roleCreateId,jdbcType=CHAR},
+      role_create = #{roleCreate,jdbcType=VARCHAR},
+      role_create_time = #{roleCreateTime,jdbcType=VARCHAR},
+      role_desc = #{roleDesc,jdbcType=VARCHAR},
+      op_id = #{opId,jdbcType=VARCHAR},
+      op_name = #{opName,jdbcType=VARCHAR},
+      op_time = #{opTime,jdbcType=VARCHAR}
+    where role_no = #{roleNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -3,12 +3,9 @@ package com.zlyx.wechatjava.mapper;
 import com.zlyx.wechatjava.pojo.LessionCompleteStatus;
 import com.zlyx.wechatjava.pojo.LessionCompleteStatusExample;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
-@Repository
 public interface LessionCompleteStatusMapper {
     int countByExample(LessionCompleteStatusExample example);
 

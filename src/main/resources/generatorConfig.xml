@@ -45,10 +45,14 @@
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
         <!-- 指定数据库表 -->
-<!--        <table schema="minipro" tableName="mini_student"></table>-->
-<!--        <table schema="minipro" tableName="mini_group"></table>-->
+        <table schema="minipro" tableName="mini_student"></table>
+        <table schema="minipro" tableName="mini_group"></table>
         <table schema="minipro" tableName="mini_lesson"></table>
-<!--        <table schema="minipro" tableName="mini_chapter"></table>-->
-<!--        <table schema="minipro" tableName="lession_complete_status"></table>-->
+        <table schema="minipro" tableName="mini_chapter"></table>
+        <table schema="minipro" tableName="lession_complete_status"></table>
+        <table schema="minipro" tableName="user_resources"></table>
+        <table schema="minipro" tableName="user_role"></table>
+        <table schema="minipro" tableName="user_role_resources"></table>
+
     </context>
 </generatorConfiguration>

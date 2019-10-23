@@ -15,9 +15,13 @@ public class MiniLesson {
 
     private String createName;
 
+    private String createId;
+
     private String opTime;
 
     private String opName;
+
+    private String opId;
 
     private String delTime;
 
@@ -79,6 +83,14 @@ public class MiniLesson {
         this.createName = createName == null ? null : createName.trim();
     }
 
+    public String getCreateId() {
+        return createId;
+    }
+
+    public void setCreateId(String createId) {
+        this.createId = createId == null ? null : createId.trim();
+    }
+
     public String getOpTime() {
         return opTime;
     }
@@ -93,6 +105,14 @@ public class MiniLesson {
 
     public void setOpName(String opName) {
         this.opName = opName == null ? null : opName.trim();
+    }
+
+    public String getOpId() {
+        return opId;
+    }
+
+    public void setOpId(String opId) {
+        this.opId = opId == null ? null : opId.trim();
     }
 
     public String getDelTime() {

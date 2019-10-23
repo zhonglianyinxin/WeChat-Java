@@ -934,6 +934,76 @@ public class LessionCompleteStatusExample {
             return (Criteria) this;
         }
 
+        public Criteria andCreateIdIsNull() {
+            addCriterion("create_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateIdIsNotNull() {
+            addCriterion("create_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateIdEqualTo(String value) {
+            addCriterion("create_id =", value, "createId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateIdNotEqualTo(String value) {
+            addCriterion("create_id <>", value, "createId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateIdGreaterThan(String value) {
+            addCriterion("create_id >", value, "createId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateIdGreaterThanOrEqualTo(String value) {
+            addCriterion("create_id >=", value, "createId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateIdLessThan(String value) {
+            addCriterion("create_id <", value, "createId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateIdLessThanOrEqualTo(String value) {
+            addCriterion("create_id <=", value, "createId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateIdLike(String value) {
+            addCriterion("create_id like", value, "createId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateIdNotLike(String value) {
+            addCriterion("create_id not like", value, "createId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateIdIn(List<String> values) {
+            addCriterion("create_id in", values, "createId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateIdNotIn(List<String> values) {
+            addCriterion("create_id not in", values, "createId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateIdBetween(String value1, String value2) {
+            addCriterion("create_id between", value1, value2, "createId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateIdNotBetween(String value1, String value2) {
+            addCriterion("create_id not between", value1, value2, "createId");
+            return (Criteria) this;
+        }
+
         public Criteria andOpTimeIsNull() {
             addCriterion("op_time is null");
             return (Criteria) this;
@@ -1071,6 +1141,76 @@ public class LessionCompleteStatusExample {
 
         public Criteria andOpNameNotBetween(String value1, String value2) {
             addCriterion("op_name not between", value1, value2, "opName");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpIdIsNull() {
+            addCriterion("op_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpIdIsNotNull() {
+            addCriterion("op_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpIdEqualTo(String value) {
+            addCriterion("op_id =", value, "opId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpIdNotEqualTo(String value) {
+            addCriterion("op_id <>", value, "opId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpIdGreaterThan(String value) {
+            addCriterion("op_id >", value, "opId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpIdGreaterThanOrEqualTo(String value) {
+            addCriterion("op_id >=", value, "opId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpIdLessThan(String value) {
+            addCriterion("op_id <", value, "opId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpIdLessThanOrEqualTo(String value) {
+            addCriterion("op_id <=", value, "opId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpIdLike(String value) {
+            addCriterion("op_id like", value, "opId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpIdNotLike(String value) {
+            addCriterion("op_id not like", value, "opId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpIdIn(List<String> values) {
+            addCriterion("op_id in", values, "opId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpIdNotIn(List<String> values) {
+            addCriterion("op_id not in", values, "opId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpIdBetween(String value1, String value2) {
+            addCriterion("op_id between", value1, value2, "opId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpIdNotBetween(String value1, String value2) {
+            addCriterion("op_id not between", value1, value2, "opId");
             return (Criteria) this;
         }
 

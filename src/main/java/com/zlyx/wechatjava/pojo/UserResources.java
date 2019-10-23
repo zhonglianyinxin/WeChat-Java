@@ -1,15 +1,17 @@
 package com.zlyx.wechatjava.pojo;
 
-public class MiniChapter {
-    private Long chapId;
+public class UserResources {
+    private String resCode;
 
-    private String chapName;
+    private String resName;
 
-    private String lessId;
+    private String resUrl;
 
-    private String lessType;
+    private String resTyoe;
 
-    private String lessAttribute;
+    private String resLogo;
+
+    private String fathCode;
 
     private String remark;
 
@@ -25,48 +27,52 @@ public class MiniChapter {
 
     private String opId;
 
-    private String delTime;
-
-    private String delName;
-
-    public Long getChapId() {
-        return chapId;
+    public String getResCode() {
+        return resCode;
     }
 
-    public void setChapId(Long chapId) {
-        this.chapId = chapId;
+    public void setResCode(String resCode) {
+        this.resCode = resCode == null ? null : resCode.trim();
     }
 
-    public String getChapName() {
-        return chapName;
+    public String getResName() {
+        return resName;
     }
 
-    public void setChapName(String chapName) {
-        this.chapName = chapName == null ? null : chapName.trim();
+    public void setResName(String resName) {
+        this.resName = resName == null ? null : resName.trim();
     }
 
-    public String getLessId() {
-        return lessId;
+    public String getResUrl() {
+        return resUrl;
     }
 
-    public void setLessId(String lessId) {
-        this.lessId = lessId == null ? null : lessId.trim();
+    public void setResUrl(String resUrl) {
+        this.resUrl = resUrl == null ? null : resUrl.trim();
     }
 
-    public String getLessType() {
-        return lessType;
+    public String getResTyoe() {
+        return resTyoe;
     }
 
-    public void setLessType(String lessType) {
-        this.lessType = lessType == null ? null : lessType.trim();
+    public void setResTyoe(String resTyoe) {
+        this.resTyoe = resTyoe == null ? null : resTyoe.trim();
     }
 
-    public String getLessAttribute() {
-        return lessAttribute;
+    public String getResLogo() {
+        return resLogo;
     }
 
-    public void setLessAttribute(String lessAttribute) {
-        this.lessAttribute = lessAttribute == null ? null : lessAttribute.trim();
+    public void setResLogo(String resLogo) {
+        this.resLogo = resLogo == null ? null : resLogo.trim();
+    }
+
+    public String getFathCode() {
+        return fathCode;
+    }
+
+    public void setFathCode(String fathCode) {
+        this.fathCode = fathCode == null ? null : fathCode.trim();
     }
 
     public String getRemark() {
@@ -123,21 +129,5 @@ public class MiniChapter {
 
     public void setOpId(String opId) {
         this.opId = opId == null ? null : opId.trim();
-    }
-
-    public String getDelTime() {
-        return delTime;
-    }
-
-    public void setDelTime(String delTime) {
-        this.delTime = delTime == null ? null : delTime.trim();
-    }
-
-    public String getDelName() {
-        return delName;
-    }
-
-    public void setDelName(String delName) {
-        this.delName = delName == null ? null : delName.trim();
     }
 }
