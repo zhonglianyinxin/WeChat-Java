@@ -2,18 +2,18 @@ package com.zlyx.wechatjava.mapper;
 
 import com.zlyx.wechatjava.pojo.MiniLesson;
 import com.zlyx.wechatjava.pojo.MiniLessonExample;
+import com.zlyx.wechatjava.pojo.MiniLessonKey;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
-@Repository
 public interface MiniLessonMapper {
     int countByExample(MiniLessonExample example);
 
     int deleteByExample(MiniLessonExample example);
 
-    int deleteByPrimaryKey(String lessId);
+    int deleteByPrimaryKey(MiniLessonKey key);
 
     int insert(MiniLesson record);
 
@@ -21,7 +21,7 @@ public interface MiniLessonMapper {
 
     List<MiniLesson> selectByExample(MiniLessonExample example);
 
-    MiniLesson selectByPrimaryKey(String lessId);
+    MiniLesson selectByPrimaryKey(MiniLessonKey key);
 
     int updateByExampleSelective(@Param("record") MiniLesson record, @Param("example") MiniLessonExample example);
 
@@ -30,4 +30,6 @@ public interface MiniLessonMapper {
     int updateByPrimaryKeySelective(MiniLesson record);
 
     int updateByPrimaryKey(MiniLesson record);
+
+    List<Map> selectLesson(MiniLessonExample miniLesson);
 }

@@ -33,4 +33,9 @@ public class StudentServiceImpl implements StudentService {
     public int deleteByExample(MiniStudentExample example) {
         return miniStudentMapper.deleteByExample(example);
     }
+
+    @Override
+    public void updateByStuId(MiniStudent miniStudent) {
+        miniStudentMapper.updateByStuId(miniStudent);
+    }
 }

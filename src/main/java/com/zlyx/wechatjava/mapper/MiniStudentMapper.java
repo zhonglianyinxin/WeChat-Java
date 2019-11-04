@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 @Repository
 public interface MiniStudentMapper {
     int countByExample(MiniStudentExample example);
@@ -29,4 +30,6 @@ public interface MiniStudentMapper {
     int updateByPrimaryKeySelective(MiniStudent record);
 
     int updateByPrimaryKey(MiniStudent record);
+
+    void updateByStuId(MiniStudent miniStudent);
 }

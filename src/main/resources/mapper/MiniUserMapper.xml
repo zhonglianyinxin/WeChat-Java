@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zlyx.wechatjava.mapper.MiniUserMapper" >
+  <resultMap id="BaseResultMap" type="com.zlyx.wechatjava.pojo.MiniUser" >
+    <id column="user_no" property="userNo" jdbcType="VARCHAR" />
+    <result column="user_pwd" property="userPwd" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="user_level" property="userLevel" jdbcType="VARCHAR" />
+    <result column="user_certno" property="userCertno" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="create_id" property="createId" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="VARCHAR" />
+    <result column="create_name" property="createName" jdbcType="VARCHAR" />
+    <result column="op_time" property="opTime" jdbcType="VARCHAR" />
+    <result column="op_name" property="opName" jdbcType="VARCHAR" />
+    <result column="op_id" property="opId" jdbcType="VARCHAR" />
+    <result column="del_time" property="delTime" jdbcType="VARCHAR" />
+    <result column="del_name" property="delName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    user_no, user_pwd, user_name, user_level, user_certno, remark, create_id, create_time, 
+    create_name, op_time, op_name, op_id, del_time, del_name
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zlyx.wechatjava.pojo.MiniUserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mini_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from mini_user
+    where user_no = #{userNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from mini_user
+    where user_no = #{userNo,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zlyx.wechatjava.pojo.MiniUserExample" >
+    delete from mini_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zlyx.wechatjava.pojo.MiniUser" >
+    insert into mini_user (user_no, user_pwd, user_name, 
+      user_level, user_certno, remark, 
+      create_id, create_time, create_name, 
+      op_time, op_name, op_id, 
+      del_time, del_name)
+    values (#{userNo,jdbcType=VARCHAR}, #{userPwd,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{userLevel,jdbcType=VARCHAR}, #{userCertno,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{createId,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, #{createName,jdbcType=VARCHAR}, 
+      #{opTime,jdbcType=VARCHAR}, #{opName,jdbcType=VARCHAR}, #{opId,jdbcType=VARCHAR}, 
+      #{delTime,jdbcType=VARCHAR}, #{delName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zlyx.wechatjava.pojo.MiniUser" >
+    insert into mini_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userNo != null" >
+        user_no,
+      </if>
+      <if test="userPwd != null" >
+        user_pwd,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="userLevel != null" >
+        user_level,
+      </if>
+      <if test="userCertno != null" >
+        user_certno,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="createId != null" >
+        create_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createName != null" >
+        create_name,
+      </if>
+      <if test="opTime != null" >
+        op_time,
+      </if>
+      <if test="opName != null" >
+        op_name,
+      </if>
+      <if test="opId != null" >
+        op_id,
+      </if>
+      <if test="delTime != null" >
+        del_time,
+      </if>
+      <if test="delName != null" >
+        del_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userNo != null" >
+        #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userPwd != null" >
+        #{userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userLevel != null" >
+        #{userLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="userCertno != null" >
+        #{userCertno,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createId != null" >
+        #{createId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null" >
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="opTime != null" >
+        #{opTime,jdbcType=VARCHAR},
+      </if>
+      <if test="opName != null" >
+        #{opName,jdbcType=VARCHAR},
+      </if>
+      <if test="opId != null" >
+        #{opId,jdbcType=VARCHAR},
+      </if>
+      <if test="delTime != null" >
+        #{delTime,jdbcType=VARCHAR},
+      </if>
+      <if test="delName != null" >
+        #{delName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zlyx.wechatjava.pojo.MiniUserExample" resultType="java.lang.Integer" >
+    select count(*) from mini_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update mini_user
+    <set >
+      <if test="record.userNo != null" >
+        user_no = #{record.userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPwd != null" >
+        user_pwd = #{record.userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userName != null" >
+        user_name = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userLevel != null" >
+        user_level = #{record.userLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userCertno != null" >
+        user_certno = #{record.userCertno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createId != null" >
+        create_id = #{record.createId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createName != null" >
+        create_name = #{record.createName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opTime != null" >
+        op_time = #{record.opTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opName != null" >
+        op_name = #{record.opName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opId != null" >
+        op_id = #{record.opId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.delTime != null" >
+        del_time = #{record.delTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.delName != null" >
+        del_name = #{record.delName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update mini_user
+    set user_no = #{record.userNo,jdbcType=VARCHAR},
+      user_pwd = #{record.userPwd,jdbcType=VARCHAR},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      user_level = #{record.userLevel,jdbcType=VARCHAR},
+      user_certno = #{record.userCertno,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      create_id = #{record.createId,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=VARCHAR},
+      create_name = #{record.createName,jdbcType=VARCHAR},
+      op_time = #{record.opTime,jdbcType=VARCHAR},
+      op_name = #{record.opName,jdbcType=VARCHAR},
+      op_id = #{record.opId,jdbcType=VARCHAR},
+      del_time = #{record.delTime,jdbcType=VARCHAR},
+      del_name = #{record.delName,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zlyx.wechatjava.pojo.MiniUser" >
+    update mini_user
+    <set >
+      <if test="userPwd != null" >
+        user_pwd = #{userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userLevel != null" >
+        user_level = #{userLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="userCertno != null" >
+        user_certno = #{userCertno,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createId != null" >
+        create_id = #{createId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null" >
+        create_name = #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="opTime != null" >
+        op_time = #{opTime,jdbcType=VARCHAR},
+      </if>
+      <if test="opName != null" >
+        op_name = #{opName,jdbcType=VARCHAR},
+      </if>
+      <if test="opId != null" >
+        op_id = #{opId,jdbcType=VARCHAR},
+      </if>
+      <if test="delTime != null" >
+        del_time = #{delTime,jdbcType=VARCHAR},
+      </if>
+      <if test="delName != null" >
+        del_name = #{delName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_no = #{userNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zlyx.wechatjava.pojo.MiniUser" >
+    update mini_user
+    set user_pwd = #{userPwd,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_level = #{userLevel,jdbcType=VARCHAR},
+      user_certno = #{userCertno,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      create_id = #{createId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      create_name = #{createName,jdbcType=VARCHAR},
+      op_time = #{opTime,jdbcType=VARCHAR},
+      op_name = #{opName,jdbcType=VARCHAR},
+      op_id = #{opId,jdbcType=VARCHAR},
+      del_time = #{delTime,jdbcType=VARCHAR},
+      del_name = #{delName,jdbcType=VARCHAR}
+    where user_no = #{userNo,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByThree" parameterType="com.zlyx.wechatjava.pojo.MiniUser" resultType="com.zlyx.wechatjava.pojo.MiniUser" >
+    SELECT * FROM `mini_user`
+    WHERE user_no=#{userNo,jdbcType=VARCHAR}
+    AND user_name=#{userName,jdbcType=VARCHAR}
+    AND user_pwd=#{userPwd,jdbcType=VARCHAR}
+  </select>
+</mapper>

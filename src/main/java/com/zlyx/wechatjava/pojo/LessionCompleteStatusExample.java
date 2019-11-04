@@ -514,6 +514,76 @@ public class LessionCompleteStatusExample {
             return (Criteria) this;
         }
 
+        public Criteria andNoCompleteIsNull() {
+            addCriterion("no_complete is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNoCompleteIsNotNull() {
+            addCriterion("no_complete is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNoCompleteEqualTo(String value) {
+            addCriterion("no_complete =", value, "noComplete");
+            return (Criteria) this;
+        }
+
+        public Criteria andNoCompleteNotEqualTo(String value) {
+            addCriterion("no_complete <>", value, "noComplete");
+            return (Criteria) this;
+        }
+
+        public Criteria andNoCompleteGreaterThan(String value) {
+            addCriterion("no_complete >", value, "noComplete");
+            return (Criteria) this;
+        }
+
+        public Criteria andNoCompleteGreaterThanOrEqualTo(String value) {
+            addCriterion("no_complete >=", value, "noComplete");
+            return (Criteria) this;
+        }
+
+        public Criteria andNoCompleteLessThan(String value) {
+            addCriterion("no_complete <", value, "noComplete");
+            return (Criteria) this;
+        }
+
+        public Criteria andNoCompleteLessThanOrEqualTo(String value) {
+            addCriterion("no_complete <=", value, "noComplete");
+            return (Criteria) this;
+        }
+
+        public Criteria andNoCompleteLike(String value) {
+            addCriterion("no_complete like", value, "noComplete");
+            return (Criteria) this;
+        }
+
+        public Criteria andNoCompleteNotLike(String value) {
+            addCriterion("no_complete not like", value, "noComplete");
+            return (Criteria) this;
+        }
+
+        public Criteria andNoCompleteIn(List<String> values) {
+            addCriterion("no_complete in", values, "noComplete");
+            return (Criteria) this;
+        }
+
+        public Criteria andNoCompleteNotIn(List<String> values) {
+            addCriterion("no_complete not in", values, "noComplete");
+            return (Criteria) this;
+        }
+
+        public Criteria andNoCompleteBetween(String value1, String value2) {
+            addCriterion("no_complete between", value1, value2, "noComplete");
+            return (Criteria) this;
+        }
+
+        public Criteria andNoCompleteNotBetween(String value1, String value2) {
+            addCriterion("no_complete not between", value1, value2, "noComplete");
+            return (Criteria) this;
+        }
+
         public Criteria andStudyBeginTimeIsNull() {
             addCriterion("study_begin_time is null");
             return (Criteria) this;
@@ -721,6 +791,146 @@ public class LessionCompleteStatusExample {
 
         public Criteria andStuYearNotBetween(String value1, String value2) {
             addCriterion("stu_year not between", value1, value2, "stuYear");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonBeginIsNull() {
+            addCriterion("lesson_begin is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonBeginIsNotNull() {
+            addCriterion("lesson_begin is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonBeginEqualTo(String value) {
+            addCriterion("lesson_begin =", value, "lessonBegin");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonBeginNotEqualTo(String value) {
+            addCriterion("lesson_begin <>", value, "lessonBegin");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonBeginGreaterThan(String value) {
+            addCriterion("lesson_begin >", value, "lessonBegin");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonBeginGreaterThanOrEqualTo(String value) {
+            addCriterion("lesson_begin >=", value, "lessonBegin");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonBeginLessThan(String value) {
+            addCriterion("lesson_begin <", value, "lessonBegin");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonBeginLessThanOrEqualTo(String value) {
+            addCriterion("lesson_begin <=", value, "lessonBegin");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonBeginLike(String value) {
+            addCriterion("lesson_begin like", value, "lessonBegin");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonBeginNotLike(String value) {
+            addCriterion("lesson_begin not like", value, "lessonBegin");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonBeginIn(List<String> values) {
+            addCriterion("lesson_begin in", values, "lessonBegin");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonBeginNotIn(List<String> values) {
+            addCriterion("lesson_begin not in", values, "lessonBegin");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonBeginBetween(String value1, String value2) {
+            addCriterion("lesson_begin between", value1, value2, "lessonBegin");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonBeginNotBetween(String value1, String value2) {
+            addCriterion("lesson_begin not between", value1, value2, "lessonBegin");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonEndIsNull() {
+            addCriterion("lesson_end is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonEndIsNotNull() {
+            addCriterion("lesson_end is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonEndEqualTo(String value) {
+            addCriterion("lesson_end =", value, "lessonEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonEndNotEqualTo(String value) {
+            addCriterion("lesson_end <>", value, "lessonEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonEndGreaterThan(String value) {
+            addCriterion("lesson_end >", value, "lessonEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonEndGreaterThanOrEqualTo(String value) {
+            addCriterion("lesson_end >=", value, "lessonEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonEndLessThan(String value) {
+            addCriterion("lesson_end <", value, "lessonEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonEndLessThanOrEqualTo(String value) {
+            addCriterion("lesson_end <=", value, "lessonEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonEndLike(String value) {
+            addCriterion("lesson_end like", value, "lessonEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonEndNotLike(String value) {
+            addCriterion("lesson_end not like", value, "lessonEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonEndIn(List<String> values) {
+            addCriterion("lesson_end in", values, "lessonEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonEndNotIn(List<String> values) {
+            addCriterion("lesson_end not in", values, "lessonEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonEndBetween(String value1, String value2) {
+            addCriterion("lesson_end between", value1, value2, "lessonEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonEndNotBetween(String value1, String value2) {
+            addCriterion("lesson_end not between", value1, value2, "lessonEnd");
             return (Criteria) this;
         }
 

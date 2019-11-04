@@ -2,12 +2,9 @@ package com.zlyx.wechatjava.mapper;
 
 import com.zlyx.wechatjava.pojo.UserRole;
 import com.zlyx.wechatjava.pojo.UserRoleExample;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
-@Repository
 public interface UserRoleMapper {
     int countByExample(UserRoleExample example);
 

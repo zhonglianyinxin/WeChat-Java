@@ -13,11 +13,17 @@ public class LessionCompleteStatus {
 
     private String complete;
 
+    private String noComplete;
+
     private String studyBeginTime;
 
     private String studyEndTime;
 
     private String stuYear;
+
+    private String lessonBegin;
+
+    private String lessonEnd;
 
     private String remark;
 
@@ -85,6 +91,14 @@ public class LessionCompleteStatus {
         this.complete = complete == null ? null : complete.trim();
     }
 
+    public String getNoComplete() {
+        return noComplete;
+    }
+
+    public void setNoComplete(String noComplete) {
+        this.noComplete = noComplete == null ? null : noComplete.trim();
+    }
+
     public String getStudyBeginTime() {
         return studyBeginTime;
     }
@@ -107,6 +121,22 @@ public class LessionCompleteStatus {
 
     public void setStuYear(String stuYear) {
         this.stuYear = stuYear == null ? null : stuYear.trim();
+    }
+
+    public String getLessonBegin() {
+        return lessonBegin;
+    }
+
+    public void setLessonBegin(String lessonBegin) {
+        this.lessonBegin = lessonBegin == null ? null : lessonBegin.trim();
+    }
+
+    public String getLessonEnd() {
+        return lessonEnd;
+    }
+
+    public void setLessonEnd(String lessonEnd) {
+        this.lessonEnd = lessonEnd == null ? null : lessonEnd.trim();
     }
 
     public String getRemark() {

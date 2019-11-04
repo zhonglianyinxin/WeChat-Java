@@ -174,76 +174,6 @@ public class MiniLessonExample {
             return (Criteria) this;
         }
 
-        public Criteria andLessNameIsNull() {
-            addCriterion("less_name is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andLessNameIsNotNull() {
-            addCriterion("less_name is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andLessNameEqualTo(String value) {
-            addCriterion("less_name =", value, "lessName");
-            return (Criteria) this;
-        }
-
-        public Criteria andLessNameNotEqualTo(String value) {
-            addCriterion("less_name <>", value, "lessName");
-            return (Criteria) this;
-        }
-
-        public Criteria andLessNameGreaterThan(String value) {
-            addCriterion("less_name >", value, "lessName");
-            return (Criteria) this;
-        }
-
-        public Criteria andLessNameGreaterThanOrEqualTo(String value) {
-            addCriterion("less_name >=", value, "lessName");
-            return (Criteria) this;
-        }
-
-        public Criteria andLessNameLessThan(String value) {
-            addCriterion("less_name <", value, "lessName");
-            return (Criteria) this;
-        }
-
-        public Criteria andLessNameLessThanOrEqualTo(String value) {
-            addCriterion("less_name <=", value, "lessName");
-            return (Criteria) this;
-        }
-
-        public Criteria andLessNameLike(String value) {
-            addCriterion("less_name like", value, "lessName");
-            return (Criteria) this;
-        }
-
-        public Criteria andLessNameNotLike(String value) {
-            addCriterion("less_name not like", value, "lessName");
-            return (Criteria) this;
-        }
-
-        public Criteria andLessNameIn(List<String> values) {
-            addCriterion("less_name in", values, "lessName");
-            return (Criteria) this;
-        }
-
-        public Criteria andLessNameNotIn(List<String> values) {
-            addCriterion("less_name not in", values, "lessName");
-            return (Criteria) this;
-        }
-
-        public Criteria andLessNameBetween(String value1, String value2) {
-            addCriterion("less_name between", value1, value2, "lessName");
-            return (Criteria) this;
-        }
-
-        public Criteria andLessNameNotBetween(String value1, String value2) {
-            addCriterion("less_name not between", value1, value2, "lessName");
-            return (Criteria) this;
-        }
-
         public Criteria andLessTypeIsNull() {
             addCriterion("less_type is null");
             return (Criteria) this;
@@ -311,6 +241,76 @@ public class MiniLessonExample {
 
         public Criteria andLessTypeNotBetween(String value1, String value2) {
             addCriterion("less_type not between", value1, value2, "lessType");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessNameIsNull() {
+            addCriterion("less_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessNameIsNotNull() {
+            addCriterion("less_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessNameEqualTo(String value) {
+            addCriterion("less_name =", value, "lessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessNameNotEqualTo(String value) {
+            addCriterion("less_name <>", value, "lessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessNameGreaterThan(String value) {
+            addCriterion("less_name >", value, "lessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessNameGreaterThanOrEqualTo(String value) {
+            addCriterion("less_name >=", value, "lessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessNameLessThan(String value) {
+            addCriterion("less_name <", value, "lessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessNameLessThanOrEqualTo(String value) {
+            addCriterion("less_name <=", value, "lessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessNameLike(String value) {
+            addCriterion("less_name like", value, "lessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessNameNotLike(String value) {
+            addCriterion("less_name not like", value, "lessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessNameIn(List<String> values) {
+            addCriterion("less_name in", values, "lessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessNameNotIn(List<String> values) {
+            addCriterion("less_name not in", values, "lessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessNameBetween(String value1, String value2) {
+            addCriterion("less_name between", value1, value2, "lessName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessNameNotBetween(String value1, String value2) {
+            addCriterion("less_name not between", value1, value2, "lessName");
             return (Criteria) this;
         }
 

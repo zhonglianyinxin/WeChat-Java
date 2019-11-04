@@ -1,60 +1,83 @@
 package com.zlyx.wechatjava.controller;
 
 
-import com.zlyx.wechatjava.pojo.MiniGroup;
 import com.zlyx.wechatjava.pojo.MiniStudent;
+import com.zlyx.wechatjava.pojo.MiniUser;
 import com.zlyx.wechatjava.service.GroupService;
 import com.zlyx.wechatjava.service.StudentService;
+import com.zlyx.wechatjava.service.UserService;
 import com.zlyx.wechatjava.util.JavaUtil;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /*
  * 注册
  */
 @RestController
-@RequestMapping("/register")
+@RequestMapping(value = "/register", method = RequestMethod.POST)
 public class RegisterController {
 
+    @Autowired
+    private UserService userService;
     @Autowired
     private StudentService studentService;
     @Autowired
     private GroupService groupService;
 
-    @RequestMapping("/register")
-    public void register(Map<String,Object> paramMap) throws Exception {
-        String stuName = JavaUtil.isEmptyReplace(paramMap.get("stuName"),"");
-        String stuId = JavaUtil.isEmptyReplace(paramMap.get("stuId"),"");
-        String stuSex = JavaUtil.isEmptyReplace(paramMap.get("stuSex"),"");
-        String stuAge = JavaUtil.isEmptyReplace(paramMap.get("stuAge"),"");
-        String stuYear = JavaUtil.isEmptyReplace(paramMap.get("stuYear"),"");
-        String stuGroupId = JavaUtil.isEmptyReplace(paramMap.get("stuGroupId"),"");
-        String groupName = JavaUtil.isEmptyReplace(paramMap.get("groupName"),"");
+    @RequestMapping("/inster")
+    public JSONObject register(@RequestBody JSONObject jsonObject) throws Exception {
+        System.out.println("进入小程序注册了。。。。。。。。。。。。。。。。jsonObject:" +jsonObject);
+        Map<String,String> returnMap = new HashMap<String,String>();
+        String userName = JavaUtil.isEmptyReplace(jsonObject.get("userName"),"");
+        String userNo = JavaUtil.isEmptyReplace(jsonObject.get("userNo"),"");
+        String userPwd = JavaUtil.isEmptyReplace(jsonObject.get("userPwd"),"");
+        String userLevel = JavaUtil.isEmptyReplace(jsonObject.get("userLevel"),"");
 
-        MiniStudent student = new MiniStudent();
-        student.setStuName(stuName);
-        student.setStuId(stuId);
-        student.setStuSex(stuSex);
-        student.setStuAge(stuAge);
-        student.setStuYear(stuYear);
-        student.setStuGroupId(stuGroupId);
-        student.setCreateTime(JavaUtil.nowToString());
-        student.setCreateName(stuName);
-        student.setOpTime(JavaUtil.nowToString());
-        student.setOpName(stuName);
-        studentService.insertSelective(student);
+        //查询用户是否存在
+        //不存在，新增用户
+        MiniUser users = userService.selectByPrimaryKey(userNo);
+        if("".equals(users) || users==null){
+            MiniUser user = new MiniUser();
+            user.setUserName(userName);
+            user.setUserNo(userNo);
+            user.setUserPwd(userPwd);
+            user.setUserLevel(userLevel);
+            user.setCreateTime(JavaUtil.nowToString());
+            user.setCreateName(userName);
+            user.setOpTime(JavaUtil.nowToString());
+            user.setOpName(userName);
+            userService.insertSelective(user);
+        }else{
+            returnMap.put("success","false");
+            returnMap.put("msg","该用户已存在！");
+            JSONObject returnJson = JSONObject.fromObject(returnMap);
+            return  returnJson;
+        }
 
-        MiniGroup group = new MiniGroup();
-        group.setGroupId(stuGroupId);
-        group.setGroupName(groupName);
-        group.setStuYear(stuYear);
-        group.setCreateTime(JavaUtil.nowToString());
-        group.setCreateName(stuName);
-        group.setOpTime(JavaUtil.nowToString());
-        group.setOpName(stuName);
-        groupService.insertSelective(group);
+        //判断用户级别是否是学员
+        // 是，则新增学生
+        if("1".equals(userLevel)){
+            MiniStudent student = new MiniStudent();
+            student.setStuName(userName);
+            student.setStuId(userNo);
+            student.setUserLevel(userLevel);
+            student.setCreateTime(JavaUtil.nowToString());
+            student.setCreateName(userName);
+            student.setOpTime(JavaUtil.nowToString());
+            student.setOpName(userName);
+            studentService.insertSelective(student);
+
+        }
+        returnMap.put("userLevel",userLevel);
+        returnMap.put("success","true");
+        JSONObject returnJson = JSONObject.fromObject(returnMap);
+        return  returnJson;
     }
 }

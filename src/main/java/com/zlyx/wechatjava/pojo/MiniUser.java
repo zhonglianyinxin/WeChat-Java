@@ -1,29 +1,23 @@
 package com.zlyx.wechatjava.pojo;
 
-public class MiniStudent {
-    private Long stuNo;
+public class MiniUser {
+    private String userNo;
 
-    private String stuName;
+    private String userPwd;
 
-    private String stuId;
-
-    private String stuSex;
-
-    private String stuAge;
-
-    private String stuGroupId;
-
-    private String stuYear;
+    private String userName;
 
     private String userLevel;
 
+    private String userCertno;
+
     private String remark;
+
+    private String createId;
 
     private String createTime;
 
     private String createName;
-
-    private String createId;
 
     private String opTime;
 
@@ -35,60 +29,28 @@ public class MiniStudent {
 
     private String delName;
 
-    public Long getStuNo() {
-        return stuNo;
+    public String getUserNo() {
+        return userNo;
     }
 
-    public void setStuNo(Long stuNo) {
-        this.stuNo = stuNo;
+    public void setUserNo(String userNo) {
+        this.userNo = userNo == null ? null : userNo.trim();
     }
 
-    public String getStuName() {
-        return stuName;
+    public String getUserPwd() {
+        return userPwd;
     }
 
-    public void setStuName(String stuName) {
-        this.stuName = stuName == null ? null : stuName.trim();
+    public void setUserPwd(String userPwd) {
+        this.userPwd = userPwd == null ? null : userPwd.trim();
     }
 
-    public String getStuId() {
-        return stuId;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setStuId(String stuId) {
-        this.stuId = stuId == null ? null : stuId.trim();
-    }
-
-    public String getStuSex() {
-        return stuSex;
-    }
-
-    public void setStuSex(String stuSex) {
-        this.stuSex = stuSex == null ? null : stuSex.trim();
-    }
-
-    public String getStuAge() {
-        return stuAge;
-    }
-
-    public void setStuAge(String stuAge) {
-        this.stuAge = stuAge == null ? null : stuAge.trim();
-    }
-
-    public String getStuGroupId() {
-        return stuGroupId;
-    }
-
-    public void setStuGroupId(String stuGroupId) {
-        this.stuGroupId = stuGroupId == null ? null : stuGroupId.trim();
-    }
-
-    public String getStuYear() {
-        return stuYear;
-    }
-
-    public void setStuYear(String stuYear) {
-        this.stuYear = stuYear == null ? null : stuYear.trim();
+    public void setUserName(String userName) {
+        this.userName = userName == null ? null : userName.trim();
     }
 
     public String getUserLevel() {
@@ -99,12 +61,28 @@ public class MiniStudent {
         this.userLevel = userLevel == null ? null : userLevel.trim();
     }
 
+    public String getUserCertno() {
+        return userCertno;
+    }
+
+    public void setUserCertno(String userCertno) {
+        this.userCertno = userCertno == null ? null : userCertno.trim();
+    }
+
     public String getRemark() {
         return remark;
     }
 
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
+    }
+
+    public String getCreateId() {
+        return createId;
+    }
+
+    public void setCreateId(String createId) {
+        this.createId = createId == null ? null : createId.trim();
     }
 
     public String getCreateTime() {
@@ -121,14 +99,6 @@ public class MiniStudent {
 
     public void setCreateName(String createName) {
         this.createName = createName == null ? null : createName.trim();
-    }
-
-    public String getCreateId() {
-        return createId;
-    }
-
-    public void setCreateId(String createId) {
-        this.createId = createId == null ? null : createId.trim();
     }
 
     public String getOpTime() {

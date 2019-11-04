@@ -1,11 +1,7 @@
 package com.zlyx.wechatjava.pojo;
 
-public class MiniLesson {
-    private String lessId;
-
+public class MiniLesson extends MiniLessonKey {
     private String lessName;
-
-    private String lessType;
 
     private String lessAttribute;
 
@@ -27,28 +23,12 @@ public class MiniLesson {
 
     private String delName;
 
-    public String getLessId() {
-        return lessId;
-    }
-
-    public void setLessId(String lessId) {
-        this.lessId = lessId == null ? null : lessId.trim();
-    }
-
     public String getLessName() {
         return lessName;
     }
 
     public void setLessName(String lessName) {
         this.lessName = lessName == null ? null : lessName.trim();
-    }
-
-    public String getLessType() {
-        return lessType;
-    }
-
-    public void setLessType(String lessType) {
-        this.lessType = lessType == null ? null : lessType.trim();
     }
 
     public String getLessAttribute() {

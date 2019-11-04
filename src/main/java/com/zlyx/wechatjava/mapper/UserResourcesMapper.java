@@ -2,12 +2,9 @@ package com.zlyx.wechatjava.mapper;
 
 import com.zlyx.wechatjava.pojo.UserResources;
 import com.zlyx.wechatjava.pojo.UserResourcesExample;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
-@Repository
 public interface UserResourcesMapper {
     int countByExample(UserResourcesExample example);
 

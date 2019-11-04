@@ -13,4 +13,7 @@ public interface StudentService {
     int updateByExampleSelective(MiniStudent record,MiniStudentExample example);
 
     int deleteByExample(MiniStudentExample example);
+
+    //通过学生编号更新小组和届数
+    void updateByStuId(MiniStudent miniStudent);
 }

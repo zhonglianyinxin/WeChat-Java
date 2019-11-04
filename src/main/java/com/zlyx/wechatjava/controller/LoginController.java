@@ -1,9 +1,12 @@
 package com.zlyx.wechatjava.controller;
 
 
+import com.zlyx.wechatjava.pojo.MiniUser;
+import com.zlyx.wechatjava.service.UserService;
 import com.zlyx.wechatjava.util.AesCbcUtil;
 import com.zlyx.wechatjava.util.HttpRequest;
 import net.sf.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,9 +20,16 @@ import java.util.Map;
 @RequestMapping("/login")
 public class LoginController {
 
+    @Autowired
+    private UserService userService;
+
     @RequestMapping("/login")
-    public Map<String,Object> decodeUserInfo(String encryptedData, String iv, String code) {
+    public Map<String,Object> decodeUserInfo(String code,String encryptedData,String iv,String userNo,String userName,String userPwd) {
         System.out.println("小程序调用。。。。。。。");
+//        String code = JavaUtil.isEmptyReplace(jsonObject.get("code"), "");
+//        String encryptedData = JavaUtil.isEmptyReplace(jsonObject.get("encryptedData"), "");
+//        String iv = JavaUtil.isEmptyReplace(jsonObject.get("iv"), "");
+
         Map<String,Object> map = new HashMap();
         //登录凭证不能为空
         if (code == null || code.length() == 0) {
@@ -67,6 +77,19 @@ public class LoginController {
                 userInfo.put("unionId", userInfoJSON.get("unionId"));
                 map.put("userInfo", userInfo);
 
+                //判断用户是否已注册
+                MiniUser miniUser = new MiniUser();
+                miniUser.setUserNo(userNo);
+                miniUser.setUserName(userName);
+                miniUser.setUserPwd(userPwd);
+                MiniUser user = userService.selectByThree(miniUser);
+                if (!"".equals(user) || user !=null){
+                    String userLevel = user.getUserLevel();
+                    map.put("userLevel",userLevel);
+                }else{
+                    map.put("status", 2);
+                    map.put("msg","用户未注册！");
+                }
                 return map;
             }
         } catch (Exception e) {
@@ -75,6 +98,7 @@ public class LoginController {
         map.put("status", 0);
         map.put("msg", "解密失败");
         System.out.println("小程序调用完成。。。。。。。");
+
         return map;
     }
 
